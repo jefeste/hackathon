@@ -12,6 +12,7 @@ module hackathon::transfer_nft {
         id: sui::object::UID,
         used: bool,
         owner: address,
+        preferred_kiosk: sui::option::Option<sui::object::ID>,
     }
 
     public struct TransferExecuted has copy, drop {
@@ -40,6 +41,21 @@ module hackathon::transfer_nft {
             id: sui::object::new(ctx),
             used: false,
             owner: recipient,
+            preferred_kiosk: sui::option::none(),
+        };
+        sui::transfer::public_transfer(nft, recipient);
+    }
+
+    public fun mint_transfer_right_for_kiosk(
+        recipient: address,
+        kiosk_id: sui::object::ID,
+        ctx: &mut sui::tx_context::TxContext,
+    ) {
+        let nft = TransferRight {
+            id: sui::object::new(ctx),
+            used: false,
+            owner: recipient,
+            preferred_kiosk: sui::option::some(kiosk_id),
         };
         sui::transfer::public_transfer(nft, recipient);
     }
@@ -96,7 +112,12 @@ module hackathon::transfer_nft {
         let payment_balance = sui::balance::split(&mut treasury.balance, amount);
         let payment = sui::coin::from_balance(payment_balance, ctx);
 
-        let TransferRight { id, used: _, owner: _ } = nft;
+        let TransferRight {
+            id,
+            used: _,
+            owner: _,
+            preferred_kiosk: _,
+        } = nft;
         let nft_id = sui::object::uid_to_inner(&id);
         sui::object::delete(id);
 
