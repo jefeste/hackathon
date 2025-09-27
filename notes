@@ -1,0 +1,11 @@
+sui client call \
+  --package 0x0dc7369b72cbcce6d709c822d570657b0bcc4648c9844be0d60b2e626f7a101a \
+  --module transfer_nft \
+  --function fund_treasury \
+  --args 0xccd187bf194dc1ad393a1b947436fa168b9e8edab8bc399d74079e817b192ec9 \
+         0xe7d37289876a957e2010d834f3278beeda191d0c5c63cf4dd2179d492832d4bb \
+  --gas-budget 10000000
+
+
+
+sui client call --package 0x0dc7369b72cbcce6d709c822d570657b0bcc4648c9844be0d60b2e626f7a101a --module transfer_nft --function execute_and_burn_transfer --args 0x0dc7369b72cbcce6d709c822d570657b0bcc4648c9844be0d60b2e626f7a101a 0xccd187bf194dc1ad393a1b947436fa168b9e8edab8bc399d74079e817b192ec9 --gas-budget 10000000
