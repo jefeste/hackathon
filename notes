@@ -14,3 +14,17 @@ sui client call \
 
 
 sui client objects --address 0x21a9877e440fca354aee0f8d1ad0f19bda846cedc66e420bcaaec47d2624bd85
+
+
+sui client call --package 0xa38696917fd033a9fba4b7c0904e81e49bf1dbccab9f7a5e8b48e8141c15a3d1 --module transfer_nft --function claim_publisher --args 0xff57ea37edeae0db7db82efb56149f974e3460d096ee2963b28696660f1c7043
+
+sui client call --package 0x1ca7cb791ba6fa527d4bb675ed1e756c90ac84fd61dd17842eda230bd15af63c --module transfer_nft --function claim_publisher --args 0xff57ea37edeae0db7db82efb56149f974e3460d096ee2963b28696660f1c7043
+
+
+
+sui client upgrade \
+  --upgrade-capability 0xff57ea37edeae0db7db82efb56149f974e3460d096ee2963b28696660f1c7043 \
+  --package-path .
+
+
+sui client call --package 0x48431cc73acc87c347fc85e6cfdaac14df4d254afd970d5e7108d6c2daa288de --module transfer_nft --function claim_publisher --args 0x8c0ff3fb52501f87dca64c9f4289ef87d455187230650fc2cdd47773fb2c2f34

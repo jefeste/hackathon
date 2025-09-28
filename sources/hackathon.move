@@ -2,6 +2,10 @@ module hackathon::transfer_nft {
     const ENOT_NFT_OWNER: u64 = 0;
     const EINSUFFICIENT_FUNDS: u64 = 1;
     const EALREADY_USED: u64 = 2;
+    const EINVALID_UPGRADE_CAP: u64 = 3;
+
+    public struct PublisherWitness has drop {}
+
     public struct Treasury has key, store {
         id: sui::object::UID,
         balance: sui::balance::Balance<sui::sui::SUI>,
@@ -35,6 +39,20 @@ module hackathon::transfer_nft {
         sui::event::emit(TreasuryCreated { treasury_id });
     }
 
+    #[allow(lint(public_entry))]
+    public entry fun claim_publisher(
+        upgrade_cap: &sui::package::UpgradeCap,
+        ctx: &mut sui::tx_context::TxContext,
+    ) {
+        assert!(
+            sui::package::upgrade_package(upgrade_cap)
+                == sui::object::id_from_address(@hackathon),
+            EINVALID_UPGRADE_CAP,
+        );
+        let publisher = sui::package::claim(PublisherWitness {}, ctx);
+        sui::transfer::public_transfer(publisher, sui::tx_context::sender(ctx));
+    }
+
     public fun mint_transfer_right(recipient: address, ctx: &mut sui::tx_context::TxContext) {
         let nft = TransferRight {
             id: sui::object::new(ctx),
@@ -45,8 +63,7 @@ module hackathon::transfer_nft {
         sui::transfer::public_transfer(nft, recipient);
     }
 
-    #[allow(lint(public_entry))]
-    public entry fun mint_transfer_right_for_kiosk(
+    public fun mint_transfer_right_for_kiosk(
         kiosk: &mut sui::kiosk::Kiosk,
         cap: &sui::kiosk::KioskOwnerCap,
         recipient: address,
@@ -168,3 +185,4 @@ module hackathon::transfer_nft {
         nft.owner = new_owner;
     }
 }
+

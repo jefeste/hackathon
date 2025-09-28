@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Drought Coverage | Suinsure</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="background-art" aria-hidden="true">
+        <img class="bg-shape shape-one" src="Images/abstract_object_1.png" alt="" loading="lazy">
+        <img class="bg-shape shape-two" src="Images/abstract_object_2.png" alt="" loading="lazy">
+        <img class="bg-shape shape-three" src="Images/abstract_object_3.png" alt="" loading="lazy">
+    </div>
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="Suinsure home">
+            <img src="Images/suinsure_logo.png" alt="" class="brand-logo">
+            <span class="visually-hidden">Suinsure</span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="index.html#coverage" class="nav-link">Coverage</a>
+            <a href="index.html#why" class="nav-link">Why Suinsure</a>
+            <a href="tech.html" class="nav-link">Technology</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+        </nav>
+        <a href="index.html#contact" class="btn btn-ghost">Get my quote</a>
+    </header>
+
+    <main>
+        <section class="contract-hero" aria-labelledby="contract-hero-title">
+            <div class="contract-hero-inner">
+                <div class="breadcrumbs" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span aria-hidden="true">›</span>
+                    <a href="drought.html">Drought</a>
+                    <span aria-hidden="true">›</span>
+                    <span>Active contract</span>
+                </div>
+                <h1 id="contract-hero-title">Your Platinum drought coverage is active</h1>
+                <p class="plan-hero-subtitle">We are monitoring rainfall and soil moisture for <strong>12 Orchard Lane, Sydney</strong>. You will be notified the moment a trigger is confirmed.</p>
+            </div>
+        </section>
+
+        <section class="contract-section">
+            <div class="contract-layout">
+                <article class="contract-card">
+                    <header class="contract-card-header">
+                        <p class="plan-tier">Platinum Coverage</p>
+                        <p class="plan-price"><span class="price-amount">$69</span><span class="price-frequency">/month</span></p>
+                    </header>
+                    <dl class="contract-meta">
+                        <div>
+                            <dt>Coverage ID</dt>
+                            <dd>SU-DR-48219</dd>
+                        </div>
+                        <div>
+                            <dt>Trigger threshold</dt>
+                            <dd>Rainfall ≥35% below 14-day moving average</dd>
+                        </div>
+                        <div>
+                            <dt>Relief transfer per trigger</dt>
+                            <dd>$1,200 paid within 24 hours</dd>
+                        </div>
+                        <div>
+                            <dt>Next review</dt>
+                            <dd>Adaptive recalibration on 12 Aug 2024</dd>
+                        </div>
+                    </dl>
+                    <p class="contract-note">Need to update your address or add an authorised recipient? <a href="index.html#contact">Talk with our team</a> and we will adjust your plan instantly.</p>
+                </article>
+
+                <article class="contract-card status-card" aria-live="polite">
+                    <header class="status-header">
+                        <p class="status-eyebrow">Oracle monitor</p>
+                        <h2 class="status-title">Awaiting trigger confirmation</h2>
+                    </header>
+                    <div class="status-visual">
+                        <div class="scan-ring">
+                            <span class="scan-dot"></span>
+                            <span class="scan-dot second"></span>
+                            <span class="scan-dot third"></span>
+                        </div>
+                        <div class="status-details">
+                            <p>Satellite rainfall feed</p>
+                            <p class="status-value">last sync: <span data-status="rainfall">3 sec ago</span></p>
+                            <p>Soil moisture probe</p>
+                            <p class="status-value">last sync: <span data-status="soil">5 sec ago</span></p>
+                            <p>Regional drought index</p>
+                            <p class="status-value">refreshing…</p>
+                        </div>
+                    </div>
+                    <p class="status-footnote">Your plan checks all data sources in real time. We will confirm a payout without you filing a claim.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; <span id="year"></span> Suinsure. Built for resilient living.</p>
+        <div class="footer-links">
+            <a href="tech.html">Technology</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </footer>
+
+    <div class="modal" data-modal="compensation" role="dialog" aria-labelledby="modal-title" aria-modal="true" hidden>
+        <div class="modal-backdrop"></div>
+        <div class="modal-dialog">
+            <header class="modal-header">
+                <h2 id="modal-title">Trigger confirmed</h2>
+                <button type="button" class="modal-close" aria-label="Close notification">&times;</button>
+            </header>
+            <div class="modal-body">
+                <p>Drought conditions in your area have met the Platinum trigger. You are due a $1,200 transfer. Confirm below to release the funds to your nominated account.</p>
+            </div>
+            <footer class="modal-footer">
+                <button type="button" class="btn btn-secondary modal-dismiss">Remind me later</button>
+                <button type="button" class="btn btn-primary modal-confirm">Receive compensation</button>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

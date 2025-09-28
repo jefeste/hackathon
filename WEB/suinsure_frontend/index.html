@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suinsure</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="background-art" aria-hidden="true">
+        <img class="bg-shape shape-one" src="Images/abstract_object_1.png" alt="" loading="lazy">
+        <img class="bg-shape shape-two" src="Images/abstract_object_2.png" alt="" loading="lazy">
+        <img class="bg-shape shape-three" src="Images/abstract_object_3.png" alt="" loading="lazy">
+    </div>
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="Suinsure home">
+            <img src="Images/suinsure_logo.png" alt="" class="brand-logo">
+            <span class="visually-hidden">Suinsure</span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="#coverage" class="nav-link">Coverage</a>
+            <a href="#why" class="nav-link">Why Suinsure</a>
+            <a href="tech.html" class="nav-link">Technology</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+        <a href="#contact" class="btn btn-ghost">Get my quote</a>
+    </header>
+
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <h1 id="hero-title">Suinsure</h1>
+                    <p class="subtitle">parametric insurance, simplified.</p>
+                    <blockquote class="hero-quote">“optimising accessibility, speed and trust for every individual”</blockquote>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="#coverage">Explore coverage options</a>
+                        <a class="btn btn-secondary" href="tech.html">See how it works</a>
+                    </div>
+                </div>
+                <div class="hero-card" role="img" aria-label="Satellite visual of climate insights">
+                    <div class="card-overlay"></div>
+                    <div class="card-copy">
+                        <p class="eyebrow">Live oracle connection</p>
+                        <h2>Data-driven triggers</h2>
+                        <p>Our models monitor parameters around your address so payouts arrive when you need them most.</p>
+                        <div class="card-tags" aria-label="Key metrics">
+                            <span class="tag">Rainfall &lt; 15mm</span>
+                            <span class="tag">Frost Risk</span>
+                            <span class="tag">Heat Index 42°C</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="coverage" class="coverage" aria-labelledby="coverage-title">
+            <div class="section-heading">
+                <h2 id="coverage-title">Pick your parametric cover</h2>
+                <p>Select the climate risk you wish to ensure.</p>
+                <p>We handle the rest with instant payouts.</p>
+            </div>
+            <div class="coverage-grid" role="list">
+                <article class="coverage-card" data-coverage="drought" role="listitem" tabindex="0">
+                    <h3>Drought</h3>
+                    <p class="card-summary">Covers extra costs when rain stays away so you can top up tanks, gardens, and smallholdings.</p>
+                    <ul>
+                        <li>Neighbourhood-level rainfall monitoring</li>
+                        <li>Cash hits your account within 48 hours</li>
+                        <li>Perfect for homes relying on tanks, wells, or allotments</li>
+                    </ul>
+                    <a class="btn btn-link" href="drought.html">Configure drought protection</a>
+                </article>
+                <article class="coverage-card" data-coverage="flooding" role="listitem" tabindex="0">
+                    <h3>Flooding</h3>
+                    <p class="card-summary">Pays out the moment local river or street levels surge so you can organise cleanup and temporary stays.</p>
+                    <ul>
+                        <li>Combines river gauges and radar rainfall near your home</li>
+                        <li>Covers emergency accommodation and drying gear</li>
+                        <li>Choose the flood warning level that matches your risk tolerance</li>
+                    </ul>
+                    <button class="btn btn-link" type="button">Configure flood protection</button>
+                </article>
+                <article class="coverage-card" data-coverage="freezing" role="listitem" tabindex="0">
+                    <h3>Frosting</h3>
+                    <p class="card-summary">Triggers when hard frosts threaten your pipes, vehicles, or home offices.</p>
+                    <ul>
+                        <li>Monitors street-level frost and wind chill</li>
+                        <li>Helps cover burst pipe repairs and heating boosts</li>
+                        <li>Seasonal pricing tailored to your postcode</li>
+                    </ul>
+                    <button class="btn btn-link" type="button">Configure frost protection</button>
+                </article>
+                <article class="coverage-card" data-coverage="heatwave" role="listitem" tabindex="0">
+                    <h3>Heatwave</h3>
+                    <p class="card-summary">Stay cool under pressure during extreme heat with our high temperature parametric insurance coverage</p>
+                    <ul>
+                        <li>Pairs with health and grid strain alerts</li>
+                        <li>Helps fund cooling equipment and wellbeing breaks</li>
+                        <li>Flexible payout corridors to match your needs</li>
+                    </ul>
+                    <button class="btn btn-link" type="button">Configure heatwave protection</button>
+                </article>
+            </div>
+        </section>
+
+        <section id="why" class="why" aria-labelledby="why-title">
+            <div class="section-heading">
+                <h2 id="why-title">Why people choose Suinsure</h2>
+                <p>Built for households that want simple climate cover without the hassle.</p>
+            </div>
+            <div class="why-grid">
+                <article class="why-card">
+                    <h3>Clear, trackable triggers</h3>
+                    <p>Follow local weather dashboards so you always know when a payout is close.</p>
+                </article>
+                <article class="why-card">
+                    <h3>Fast automatic payouts</h3>
+                    <p>Funds land in your account within 48 hours—no claims calls or paperwork.</p>
+                </article>
+                <article class="why-card">
+                    <h3>Flexible coverage</h3>
+                    <p>Move home or travel for work? Update your location and triggers anytime.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="contact" aria-labelledby="contact-title">
+            <div class="section-heading">
+                <h2 id="contact-title">Let’s protect your home together</h2>
+                <p>Tell us about your property and climate concerns—we’ll send a personal quote within hours.</p>
+            </div>
+            <form class="contact-form" action="#" method="post">
+                <div class="form-row">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Alex Rivera" required>
+                </div>
+                <div class="form-row">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="alex@email.com" required>
+                </div>
+                <div class="form-row">
+                    <label for="coverage-select">Primary coverage interest</label>
+                    <select id="coverage-select" name="coverage">
+                        <option value="drought">Drought Shield</option>
+                        <option value="flooding">FloodGuard</option>
+                        <option value="freezing">FrostLine</option>
+                        <option value="heatwave">HeatWave Prime</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="message">Context</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Share details about your home, family, or recent weather events"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Request personal quote</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; <span id="year"></span> Suinsure. Built for resilient living.</p>
+        <div class="footer-links">
+            <a href="tech.html">Technology</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </footer>
+</body>
+</html>

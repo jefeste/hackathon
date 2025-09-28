@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drought Plans | Suinsure</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="background-art" aria-hidden="true">
+        <img class="bg-shape shape-one" src="Images/abstract_object_1.png" alt="" loading="lazy">
+        <img class="bg-shape shape-two" src="Images/abstract_object_2.png" alt="" loading="lazy">
+        <img class="bg-shape shape-three" src="Images/abstract_object_3.png" alt="" loading="lazy">
+    </div>
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="Suinsure home">
+            <img src="Images/suinsure_logo.png" alt="" class="brand-logo">
+            <span class="visually-hidden">Suinsure</span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="index.html#coverage" class="nav-link">Coverage</a>
+            <a href="index.html#why" class="nav-link">Why Suinsure</a>
+            <a href="tech.html" class="nav-link">Technology</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+        </nav>
+        <a href="index.html#contact" class="btn btn-ghost">Get my quote</a>
+    </header>
+
+    <main>
+        <section class="plan-hero" aria-labelledby="plan-hero-title">
+            <div class="plan-hero-inner">
+                <div class="breadcrumbs" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span aria-hidden="true">›</span>
+                    <span>Drought</span>
+                </div>
+                <h1 id="plan-hero-title">Choose your drought coverage</h1>
+                <p class="plan-hero-subtitle">Lock in protection that tops up your budget whenever rainfall stays below your comfort zone.</p>
+            </div>
+        </section>
+
+        <section class="plan-section" aria-label="Drought plans">
+            <div class="plan-grid">
+                <article class="plan-card" data-plan="gold">
+                    <header class="plan-card-header">
+                        <p class="plan-tier">Gold Coverage</p>
+                        <p class="plan-price"><span class="price-amount">$39</span><span class="price-frequency">/month</span></p>
+                    </header>
+                    <p class="plan-summary">Ideal for renters and small households who want peace of mind during moderate dry spells.</p>
+                    <ul class="plan-benefits">
+                        <li>Triggers when rainfall drops 25% below local average</li>
+                        <li>Instant $600 relief transfer per trigger</li>
+                        <li>Water delivery and garden refresh stipend</li>
+                        <li>Live drought alerts via SMS and email</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn btn-primary plan-cta">Select Gold</a>
+                </article>
+
+                <article class="plan-card is-featured" data-plan="platinum">
+                    <header class="plan-card-header">
+                        <p class="plan-tier">Platinum Coverage</p>
+                        <p class="plan-price"><span class="price-amount">$69</span><span class="price-frequency">/month</span></p>
+                        <span class="plan-badge">Most popular</span>
+                    </header>
+                    <p class="plan-summary">Great for families managing lawns, veggie patches, or smallholdings needing dependable backup.</p>
+                    <ul class="plan-benefits">
+                        <li>Triggers when rainfall drops 35% below local average</li>
+                        <li>Instant $1,200 relief transfer per trigger</li>
+                        <li>Includes tank cleaning &amp; greywater filtration stipend</li>
+                        <li>Dedicated climate concierge for plan adjustments</li>
+                    </ul>
+                    <a href="drought-active.html" class="btn btn-primary plan-cta">Select Platinum</a>
+                </article>
+
+                <article class="plan-card" data-plan="diamond">
+                    <header class="plan-card-header">
+                        <p class="plan-tier">Diamond Coverage</p>
+                        <p class="plan-price"><span class="price-amount">$109</span><span class="price-frequency">/month</span></p>
+                    </header>
+                    <p class="plan-summary">Designed for lifestyle properties and hobby farms needing high limits and tailored trigger bands.</p>
+                    <ul class="plan-benefits">
+                        <li>Custom trigger thresholds with seasonal tuning</li>
+                        <li>Up to $2,500 relief transfer per trigger</li>
+                        <li>Includes soil moisture sensor bundle</li>
+                        <li>Priority access to resilience consultants</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn btn-primary plan-cta">Select Diamond</a>
+                </article>
+            </div>
+            <p class="plan-note">All plans include transparent dashboards, unlimited trigger reviews, and the ability to pause coverage when you travel.
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; <span id="year"></span> Suinsure. Built for resilient living.</p>
+        <div class="footer-links">
+            <a href="tech.html">Technology</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </footer>
+</body>
+</html>
