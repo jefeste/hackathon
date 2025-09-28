@@ -2,7 +2,6 @@ module hackathon::transfer_nft {
     const ENOT_NFT_OWNER: u64 = 0;
     const EINSUFFICIENT_FUNDS: u64 = 1;
     const EALREADY_USED: u64 = 2;
-
     public struct Treasury has key, store {
         id: sui::object::UID,
         balance: sui::balance::Balance<sui::sui::SUI>,
@@ -12,7 +11,7 @@ module hackathon::transfer_nft {
         id: sui::object::UID,
         used: bool,
         owner: address,
-        preferred_kiosk: sui::option::Option<sui::object::ID>,
+        preferred_kiosk: option::Option<sui::object::ID>,
     }
 
     public struct TransferExecuted has copy, drop {
@@ -41,23 +40,26 @@ module hackathon::transfer_nft {
             id: sui::object::new(ctx),
             used: false,
             owner: recipient,
-            preferred_kiosk: sui::option::none(),
+            preferred_kiosk: option::none(),
         };
         sui::transfer::public_transfer(nft, recipient);
     }
 
-    public fun mint_transfer_right_for_kiosk(
+    #[allow(lint(public_entry))]
+    public entry fun mint_transfer_right_for_kiosk(
+        kiosk: &mut sui::kiosk::Kiosk,
+        cap: &sui::kiosk::KioskOwnerCap,
         recipient: address,
-        kiosk_id: sui::object::ID,
         ctx: &mut sui::tx_context::TxContext,
     ) {
+        let kiosk_id = sui::object::id(kiosk);
         let nft = TransferRight {
             id: sui::object::new(ctx),
             used: false,
             owner: recipient,
-            preferred_kiosk: sui::option::some(kiosk_id),
+            preferred_kiosk: option::some(kiosk_id),
         };
-        sui::transfer::public_transfer(nft, recipient);
+        sui::kiosk::place(kiosk, cap, nft);
     }
 
     public fun fund_treasury(

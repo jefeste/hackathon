@@ -1,20 +1,16 @@
-sui client call \
-  --package 0xe6f616dcc570e5426c932656ff1546dc1902dcab61c196e8dedf0d263a4abe4b \
-  --module transfer_nft \
-  --function execute_and_burn_transfer \
-  --args 0x0e94c013377ed82923f1e79d3336cfc7237bd5dc7b547892f4851ad41e5cd27e 0x9b86eafaef97a4c90e3bf59e471900d952a2a44c704e685bf830519eece33eb7
+sui client call --package 0x89cb608ca2f1e2a43686a270acf44e3c00219ec702cd1b10d1a29b04c86a1419 --module transfer_nft --function mint_transfer_right_for_kiosk --args 0xdc9642d2f4e57b9c710b8228024a66c2e88000bdfdde93e0e1e22623282b75a8 0x21a9877e440fca354aee0f8d1ad0f19bda846cedc66e420bcaaec47d2624bd85 0x21a9877e440fca354aee0f8d1ad0f19bda846cedc66e420bcaaec47d2624bd85
+
+
+sui client call --package 0x2 --module kiosk --function default 
 
 
 sui client call \
-  --package 0xe6f616dcc570e5426c932656ff1546dc1902dcab61c196e8dedf0d263a4abe4b \
-  --module transfer_nft \
-  --function mint_transfer_right \
-  --args 0x21a9877e440fca354aee0f8d1ad0f19bda846cedc66e420bcaaec47d2624bd85 \
+  --package 0x2 \
+  --module transfer_policy \
+  --function default \
+  --type-args 0x89cb608ca2f1e2a43686a270acf44e3c00219ec702cd1b10d1a29b04c86a1419::transfer_nft::TransferRight \
+  --args <publisher_object_id> \
   --gas-budget 2000000
 
 
-sui client call \
-  --package 0xe6f616dcc570e5426c932656ff1546dc1902dcab61c196e8dedf0d263a4abe4b \
-  --module transfer_nft \
-  --function mint_transfer_right \
-  --args 0x54158770e5457a318003c91ea39a97615cbede1a102529b3183e449afcd68c61
+sui client objects --address 0x21a9877e440fca354aee0f8d1ad0f19bda846cedc66e420bcaaec47d2624bd85
