@@ -1,10 +1,12 @@
 module hackathon::transfer_nft {
+    use std::string;
+    use sui::display;
     const ENOT_NFT_OWNER: u64 = 0;
     const EINSUFFICIENT_FUNDS: u64 = 1;
     const EALREADY_USED: u64 = 2;
     const EINVALID_UPGRADE_CAP: u64 = 3;
 
-    public struct PublisherWitness has drop {}
+    public struct PublisherWitness has copy, drop {}
 
     public struct Treasury has key, store {
         id: sui::object::UID,
@@ -42,11 +44,12 @@ module hackathon::transfer_nft {
     #[allow(lint(public_entry))]
     public entry fun claim_publisher(
         upgrade_cap: &sui::package::UpgradeCap,
+        package_addr: address,
         ctx: &mut sui::tx_context::TxContext,
     ) {
         assert!(
             sui::package::upgrade_package(upgrade_cap)
-                == sui::object::id_from_address(@hackathon),
+                == sui::object::id_from_address(package_addr),
             EINVALID_UPGRADE_CAP,
         );
         let publisher = sui::package::claim(PublisherWitness {}, ctx);
@@ -184,5 +187,37 @@ module hackathon::transfer_nft {
         assert!(nft.owner == sender, ENOT_NFT_OWNER);
         nft.owner = new_owner;
     }
-}
 
+    #[allow(lint(public_entry))]
+    public entry fun init_transfer_right_display(
+        publisher: &sui::package::Publisher,
+        name: vector<u8>,
+        description: vector<u8>,
+        image_url: vector<u8>,
+        link_url: vector<u8>,
+        ctx: &mut sui::tx_context::TxContext,
+    ) {
+        let field_names = vector[
+            string::utf8(b"name"),
+            string::utf8(b"description"),
+            string::utf8(b"image"),
+            string::utf8(b"link"),
+        ];
+
+        let display_values = vector[
+            string::utf8(name),
+            string::utf8(description),
+            string::utf8(image_url),
+            string::utf8(link_url),
+        ];
+
+        let display_obj = display::new_with_fields<TransferRight>(
+            publisher,
+            field_names,
+            display_values,
+            ctx,
+        );
+
+        sui::transfer::public_share_object(display_obj);
+    }
+}
